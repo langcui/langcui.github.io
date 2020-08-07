@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="miu miu">
+  <meta name="description" content="闭包, 匿名函数闭包:说白了就是函数的嵌套,内层的函数可以使用外层函数的所有变量,即使外层函数已经执行完毕.闭包的参数和执行时间不同,一定要注意.go匿名函数和闭包   普通函数和匿名函数的区别参数传递区别不大,只是调用方面,匿名函数需要通过一个包装对象func1.f 来调用,这个过程通过rbx进行二次寻址来完成调用.  所以理论上匿名函数性能比普通函数要差.   go语言函数支持”命名结果参数”">
 <meta property="og:type" content="article">
-<meta property="og:title" content="My New Post">
+<meta property="og:title" content="go-learn">
 <meta property="og:url" content="http://yoursite.com/2020/08/07/go-learn/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="miu miu">
+<meta property="og:description" content="闭包, 匿名函数闭包:说白了就是函数的嵌套,内层的函数可以使用外层函数的所有变量,即使外层函数已经执行完毕.闭包的参数和执行时间不同,一定要注意.go匿名函数和闭包   普通函数和匿名函数的区别参数传递区别不大,只是调用方面,匿名函数需要通过一个包装对象func1.f 来调用,这个过程通过rbx进行二次寻址来完成调用.  所以理论上匿名函数性能比普通函数要差.   go语言函数支持”命名结果参数”">
 <meta property="og:locale">
-<meta property="article:published_time" content="2020-08-07T10:34:19.000Z">
-<meta property="article:modified_time" content="2020-08-07T12:21:51.867Z">
+<meta property="article:published_time" content="2020-08-07T12:39:35.000Z">
+<meta property="article:modified_time" content="2020-08-07T12:50:04.155Z">
 <meta property="article:author" content="BaYue Xiao">
 <meta name="twitter:card" content="summary">
 
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>My New Post | Hexo</title>
+  <title>go-learn | Hexo</title>
   
 
 
@@ -163,7 +163,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          My New Post
+          go-learn
         </h1>
 
         <div class="post-meta">
@@ -174,7 +174,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-08-07 18:34:19 / Modified: 20:21:51" itemprop="dateCreated datePublished" datetime="2020-08-07T18:34:19+08:00">2020-08-07</time>
+              <time title="Created: 2020-08-07 20:39:35 / Modified: 20:50:04" itemprop="dateCreated datePublished" datetime="2020-08-07T20:39:35+08:00">2020-08-07</time>
             </span>
 
           
@@ -188,7 +188,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h1 id="闭包-匿名函数"><a href="#闭包-匿名函数" class="headerlink" title="闭包, 匿名函数"></a>闭包, 匿名函数</h1><p>闭包:说白了就是函数的嵌套,内层的函数可以使用外层函数的所有变量,即使外层函数已经执行完毕.<br>闭包的参数和执行时间不同,一定要注意.<br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000018689134">go匿名函数和闭包</a>  </p>
+<h1 id="普通函数和匿名函数的区别"><a href="#普通函数和匿名函数的区别" class="headerlink" title="普通函数和匿名函数的区别"></a>普通函数和匿名函数的区别</h1><p>参数传递区别不大,只是调用方面,匿名函数需要通过一个包装对象<code>func1.f</code> 来调用,<br>这个过程通过rbx进行二次寻址来完成调用.  所以理论上匿名函数性能比普通函数要差.  </p>
+<h1 id="go语言函数支持”命名结果参数”"><a href="#go语言函数支持”命名结果参数”" class="headerlink" title="go语言函数支持”命名结果参数”"></a>go语言函数支持”命名结果参数”</h1><p>Go 函数的返回值或结果 “形参” 可被命名，并作为常规变量使用，就像传入的形参一样。 命名后，一旦该函数开始执行，它们就会被初始化为与其类型相应的零值； 若该函数执行了一条不带实参的 return 语句，则结果形参的当前值将被返回。<br>由于被命名的结果已经初始化，且已经关联至无参数的返回，它们就能让代码简单而清晰。 下面的 io.ReadFull 就是个很好的例子：<br> <code>func ReadFull(r Reader, buf []byte) (n int, err error) &#123;&#125; </code></p>
+<h1 id="redis-的zset在score-相同时，默认是按字典排序的，如何使用自定义排序？"><a href="#redis-的zset在score-相同时，默认是按字典排序的，如何使用自定义排序？" class="headerlink" title="redis 的zset在score 相同时，默认是按字典排序的，如何使用自定义排序？"></a>redis 的zset在score 相同时，默认是按字典排序的，如何使用自定义排序？</h1><p>答：score相同时, redis默认按字典排序, 如果希望按时间排序, 可以将 uint(score) 按如下方式改造  </p>
+<ul>
+<li>按时间倒序: 改成 float(score . timestamp)  </li>
+<li>按时间正序: 改成 float(score . (maxtimestamp - timestamp))  </li>
+</ul>
+<h1 id="Go语言的”逃逸分析”-为什么函数可以返回一个局部变量的地址"><a href="#Go语言的”逃逸分析”-为什么函数可以返回一个局部变量的地址" class="headerlink" title="Go语言的”逃逸分析”: 为什么函数可以返回一个局部变量的地址?"></a>Go语言的”逃逸分析”: 为什么函数可以返回一个局部变量的地址?</h1><p>Go逃逸分析最基本的原则是：如果一个函数返回对一个变量的引用，那么它就会发生逃逸<br>简单来说，编译器会根据变量是否被外部引用来决定是否逃逸：  </p>
+<ul>
+<li>如果函数外部没有引用，则优先放到栈中; // 注意,这里是优先,不是必定  </li>
+<li>如果函数外部存在引用，则必定放到堆中;<br>针对第一条，可能放到堆上的情形：定义了一个很大的数组，需要申请的内存过大，超过了栈的存储能力。  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">func NewFile(fd int, name string) *File &#123;    </span><br><span class="line">    f :&#x3D; File&#123;fd, name, nil, 0&#125;    </span><br><span class="line">    return &amp;f  &#x2F;&#x2F; 这里不会像C，报错段错误提示。而是可以正常使用 f的地址.    </span><br><span class="line">&#125;  </span><br><span class="line">&#96;&#96;&#96;  </span><br><span class="line">* c&#x2F;c++中,局部变量是分配在栈里的,函数返回时栈被回收,所以不能返回局部变量的地址.  </span><br><span class="line">如果要返回地址,只能是在堆里分配的地址.    </span><br><span class="line">* Go语言会自动决定把一个变量分配在堆上还是栈上,无论是普通变量,还是new变量, 编译器都会做&quot;逃逸分析&quot;.  </span><br><span class="line">* 逃逸分析主要依据的是变量的作用域, 即便是new一个局部变量,如果作用域没有逃出函数范围,也会分配在栈上.  </span><br><span class="line">[逃逸分析](https:&#x2F;&#x2F;segmentfault.com&#x2F;a&#x2F;1190000021584903)  </span><br><span class="line"></span><br><span class="line">&#96;go build -gcflags &#39;-m -l&#39; main.go  可以查看变量逃逸情况&#96;</span><br><span class="line">  </span><br><span class="line"># Go的两种分配原语 make 和 new 有何区别?    </span><br><span class="line">make 只用于切片,映射,通道,并且不返回指针.  </span><br><span class="line">new 返回指针, 下面的例子可以阐明两者的区别:  </span><br></pre></td></tr></table></figure>
+var p *[]int = new([]int) // 分配切片结构: *p == nil, 很少用到<br>var v []int = make([]int, 100) // 切片v现在引用了一个具有100个int元素的新数组<br>没必要的复杂用法:<br>var p *[]int = new([]int)</li>
+</ul>
+<p>*p = make([]int, 100, 100)<br>常规用法:<br>v := make([]int, 100)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"># go的数组和C的区别是什么?</span><br><span class="line">在Go中,  </span><br><span class="line">1. 数组是值.将一个数组赋值给另一个,会复制其所有元素    </span><br><span class="line">2. 将数组作为函数参数,它将会接收到该数组的一个副本,而非指针.   </span><br><span class="line">3. 数组的大小是其类型的一部分,所以类型[10]int 和 [20]int 是不一样的.  </span><br><span class="line">数组的值属性很有用,但代价昂贵,如果想要C那样的行为和效率,可以传递指向该数组的指针:  </span><br><span class="line">  &#96;a [10]int;  func(&amp;a)&#96;  </span><br><span class="line">但这不是Go的习惯用法, 切片才是.  </span><br><span class="line"></span><br><span class="line"># Go 中的大部分数组编程都是通过切片来完成的。  </span><br><span class="line">[new和make区别](https:&#x2F;&#x2F;learnku.com&#x2F;docs&#x2F;effective-go&#x2F;2020&#x2F;data&#x2F;6243)  </span><br><span class="line"></span><br><span class="line"># 映射 map  </span><br><span class="line">切片和映射都是引用类型，如果将映射传入函数，并且修改了该映射的内容，那么这个修改对调用者同样可见。    </span><br><span class="line">map有两种返回值的用法，一个返回值和两个返回值, 比如,  </span><br><span class="line">&#96;m :&#x3D; map[string] int  &#96;</span><br><span class="line">&#96;i :&#x3D; m[&quot;test&quot;], 如果不存在则返回int的默认值 0&#96;    </span><br><span class="line">如何区分不存在和0呢? 用两个返回值的:  </span><br><span class="line"> &#96;i, ok :&#x3D; m[&quot;test&quot;];  &#x2F;&#x2F; 如果存在,那么ok &#x3D;&#x3D; true; 如果不存在,则 ok &#x3D;&#x3D; false   &#96;</span><br><span class="line"></span><br><span class="line"># 打印, fmt   </span><br><span class="line">%v 可以打印任意类型的值,包括map,切片等    </span><br><span class="line">&#96;i :&#x3D; 10; log.Printf(&quot;%v %T\n&quot;, &amp;i, &amp;i); 可以打印指针的地址&#96;    </span><br><span class="line">若想自己控制 %v 的打印方式, 只需要为该类型实现一个  String() string 的签名方法即可:  </span><br><span class="line">&#96;&#96;&#96;  </span><br><span class="line">func (t *T) String() string &#123;  </span><br><span class="line">    return fmt.Sprintf(&quot;%d&#x2F;%g&#x2F;%q&quot;, t.a, t.b, t.c)  </span><br><span class="line">&#125;   </span><br><span class="line">fmt.Printf(&quot;%v\n&quot;, t) 就会自动调用上面这个方法  </span><br><span class="line">&#96;&#96;&#96;  </span><br><span class="line">   </span><br><span class="line"># 如何导入当前项目下的包?  </span><br><span class="line">答: 跟其他语言一样: import  &quot;.&#x2F;models&#x2F;entitys&quot; &#x2F;&#x2F;当前目录下的entitys  </span><br><span class="line">当然也可以把写好的组件放入$GoPath的src中，这样就不需要关心目录是哪一层，只需要类似这样调用就好了：  </span><br><span class="line">import  &quot;myproject&#x2F;controllers&quot; &#x2F;&#x2F;这里就是自己项目的名字+包名   </span><br><span class="line">[Go 导入当前项目下的包](https:&#x2F;&#x2F;studygolang.com&#x2F;articles&#x2F;9273)  </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"># 如何读取 post 数据, 以及怎么用json解析请求数据?</span><br></pre></td></tr></table></figure>
+<p>data, _ := ioutil.ReadAll(req.Body)  // 请求数据放在 req.Body里, 直接用 ioutil.ReadAll 读即可<br>req.Body.Close()<br>var g gift<br>err := json.Unmarshal([]byte(data), &amp;g)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">要注意的是 结构体 gift 里的需要解析的字段首字母一定要是大写的,否则json.Unmarshal会忽略该字段:    </span><br></pre></td></tr></table></figure>
+<p>type gift struct {<br>  AuthorID string<br>  Worth    string<br>  Time     string<br>}  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">并且对post请求参数里的大小写不敏感,比如下面的数据也能正常解析:  </span><br><span class="line">　&#96;　&#123;&quot;tIme&quot;:1234,&quot;auThorID&quot;:345&#125;&#96;</span><br><span class="line"></span><br><span class="line"># redis   </span><br></pre></td></tr></table></figure>
+<p>　　sudo apt install redis-server<br>　　redis-server //启动server<br>　　redis-cli    //用客户端访问  </p>
+<pre><code># mongodb  
+[在Ubuntu下进行MongoDB安装步骤](https://www.cnblogs.com/shileima/p/7823434.html)</code></pre>
+
     </div>
 
     
@@ -202,11 +225,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/08/07/hello-world/" rel="next" title="Hello World">
-      Hello World <i class="fa fa-chevron-right"></i>
+    <a href="/2020/08/07/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -265,6 +288,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AD%E5%8C%85-%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">闭包, 匿名函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E5%92%8C%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.</span> <span class="nav-text">普通函数和匿名函数的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#go%E8%AF%AD%E8%A8%80%E5%87%BD%E6%95%B0%E6%94%AF%E6%8C%81%E2%80%9D%E5%91%BD%E5%90%8D%E7%BB%93%E6%9E%9C%E5%8F%82%E6%95%B0%E2%80%9D"><span class="nav-number">3.</span> <span class="nav-text">go语言函数支持”命名结果参数”</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#redis-%E7%9A%84zset%E5%9C%A8score-%E7%9B%B8%E5%90%8C%E6%97%B6%EF%BC%8C%E9%BB%98%E8%AE%A4%E6%98%AF%E6%8C%89%E5%AD%97%E5%85%B8%E6%8E%92%E5%BA%8F%E7%9A%84%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%92%E5%BA%8F%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">redis 的zset在score 相同时，默认是按字典排序的，如何使用自定义排序？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Go%E8%AF%AD%E8%A8%80%E7%9A%84%E2%80%9D%E9%80%83%E9%80%B8%E5%88%86%E6%9E%90%E2%80%9D-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%87%BD%E6%95%B0%E5%8F%AF%E4%BB%A5%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E7%9A%84%E5%9C%B0%E5%9D%80"><span class="nav-number">5.</span> <span class="nav-text">Go语言的”逃逸分析”: 为什么函数可以返回一个局部变量的地址?</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
